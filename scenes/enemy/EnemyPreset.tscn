@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/enemy/gbc_robot.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui/speed_indicator.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/Silver.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/sprites/ui/hp_bar_progress.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/ui/hp_bar_under.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+extra_spacing_bottom = -14
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "select"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.490196, 0.490196, 0.490196, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="EnemyPreset" type="Node2D" groups=["UNIT"]]
+script = ExtResource( 1 )
+max_hp = 10
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="SpeedIndicator" type="Sprite" parent="."]
+position = Vector2( 0, -88 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="SpeedIndicator"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.0
+margin_top = -48.0
+margin_right = -27.0
+custom_colors/font_color = Color( 0.988235, 0.972549, 0.988235, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5"
+align = 1
+valign = 1
+
+[node name="HpBar" type="TextureProgress" parent="."]
+margin_left = -32.0
+margin_top = 64.0
+margin_right = 32.0
+margin_bottom = 80.0
+value = 90.0
+rounded = true
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
+
+[node name="ClickBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickBox"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/select = SubResource( 4 )
+
+[connection signal="input_event" from="ClickBox" to="." method="_on_ClickBox_input_event"]
+[connection signal="mouse_entered" from="ClickBox" to="." method="_on_ClickBox_mouse_entered"]
+[connection signal="mouse_exited" from="ClickBox" to="." method="_on_ClickBox_mouse_exited"]

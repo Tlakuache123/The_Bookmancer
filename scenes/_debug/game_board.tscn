@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/_debug/game_board.gd" type="Script" id=1]
+[ext_resource path="res://src/game_board.tres" type="Resource" id=2]
+
+[node name="GameBoard" type="Node"]
+script = ExtResource( 1 )
+board = ExtResource( 2 )
+
+[node name="FrontEnemy" type="Node2D" parent="."]
+position = Vector2( 0, 232 )
+
+[node name="FrontLeft" type="Position2D" parent="FrontEnemy"]
+position = Vector2( 128, 0 )
+
+[node name="FrontCenter" type="Position2D" parent="FrontEnemy"]
+position = Vector2( 320, 0 )
+
+[node name="FrontRight" type="Position2D" parent="FrontEnemy"]
+position = Vector2( 512, 0 )
