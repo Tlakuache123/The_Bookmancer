@@ -10,8 +10,6 @@ export(int) var speed: int = 1
 export(int) var drop_coins: int = 1
 export(int) var drop_xp: int = 1
 
-var playing_turn: bool = false
-
 onready var hp = max_hp setget _set_hp
 
 
@@ -32,7 +30,12 @@ func _drop_loot() -> Dictionary:
 
 
 func _play_turn() -> void:
-	playing_turn = true
+	pass
+
+
+func _do_damage() -> void:
+	if is_instance_valid(BattleUnits.player):
+		BattleUnits.player.hp -= damage
 
 
 func _set_hp(value) -> void:

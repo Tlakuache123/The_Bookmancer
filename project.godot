@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Actor",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://scenes/enemy/Enemy.gd"
+"path": "res://scenes/enemy/enemy.gd"
 }, {
 "base": "",
 "class": "GitAPI",
@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "Stats",
 "language": "GDScript",
 "path": "res://src/stats.gd"
+}, {
+"base": "Node",
+"class": "TurnManager",
+"language": "GDScript",
+"path": "res://src/turn_manager.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
@@ -51,7 +56,8 @@ _global_script_class_icons={
 "GitAPI": "",
 "Layout": "",
 "PlayerStats": "",
-"Stats": ""
+"Stats": "",
+"TurnManager": ""
 }
 
 [application]
@@ -59,6 +65,10 @@ _global_script_class_icons={
 config/name="The Bookmancer"
 run/main_scene="res://scenes/_debug/test.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+BattleUnits="*res://src/battle_units.gd"
 
 [display]
 

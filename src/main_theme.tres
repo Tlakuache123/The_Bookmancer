@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://assets/fonts/Silver.ttf" type="DynamicFontData" id=1]
 
@@ -6,6 +6,23 @@
 size = 34
 extra_spacing_bottom = -4
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+content_margin_left = 2.0
+content_margin_right = 2.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.988235, 0.972549, 0.988235, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.376471, 0.376471, 0.376471, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id=11]
 content_margin_left = 2.0
@@ -141,10 +158,12 @@ expand_margin_right = 2.0
 
 [resource]
 Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.376471, 0.376471, 0.376471, 1 )
 Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
 Button/colors/font_color_hover = Color( 0, 0.533333, 0.580392, 1 )
 Button/colors/font_color_pressed = Color( 0.988235, 0.972549, 0.988235, 1 )
 Button/fonts/font = SubResource( 10 )
+Button/styles/disabled = SubResource( 14 )
 Button/styles/focus = SubResource( 11 )
 Button/styles/hover = SubResource( 12 )
 Button/styles/normal = SubResource( 11 )

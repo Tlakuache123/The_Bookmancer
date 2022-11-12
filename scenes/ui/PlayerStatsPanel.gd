@@ -1,14 +1,12 @@
 extends MarginContainer
 
-export(Resource) var player_stats
+var player_stats : Resource
 
 onready var hp_bar = $Panel/ProgressBar
 onready var hp_label = $Panel/HpLabel
 
-func _ready():
-	setup()
-
-func setup():
+func setup(stats):
+	player_stats = stats
 	player_stats.setup()
 	player_stats.connect("change_hp", self, "set_hp")
 	hp_bar.max_value = player_stats.max_hp

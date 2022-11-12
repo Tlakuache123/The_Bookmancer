@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://scenes/enemy/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/enemy/gbc_robot.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/ui/speed_indicator.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/Silver.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/enemy/enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Silver.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/sprites/enemy/gbc_robot.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/ui/speed_indicator.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
 extra_spacing_bottom = -14
-font_data = ExtResource( 4 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0.721569, 0, 1 )
@@ -57,11 +57,11 @@ script = ExtResource( 1 )
 max_hp = 10
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="SpeedIndicator" type="Sprite" parent="."]
 position = Vector2( 0, -88 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="SpeedIndicator"]
 anchor_left = 0.5
