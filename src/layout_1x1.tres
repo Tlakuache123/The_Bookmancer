@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 F_L = true
-F_C = false
+F_C = true
 F_R = true
 B_L = false
 B_C = false

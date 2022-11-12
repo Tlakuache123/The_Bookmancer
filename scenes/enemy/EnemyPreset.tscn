@@ -4,13 +4,17 @@
 [ext_resource path="res://assets/sprites/enemy/gbc_robot.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/ui/speed_indicator.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Silver.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/sprites/ui/hp_bar_progress.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/ui/hp_bar_under.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
 extra_spacing_bottom = -14
 font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.721569, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 64 )
@@ -73,15 +77,16 @@ text = "5"
 align = 1
 valign = 1
 
-[node name="HpBar" type="TextureProgress" parent="."]
+[node name="HpBar" type="ProgressBar" parent="."]
 margin_left = -32.0
 margin_top = 64.0
 margin_right = 32.0
-margin_bottom = 80.0
+margin_bottom = 72.0
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
 value = 90.0
 rounded = true
-texture_under = ExtResource( 6 )
-texture_progress = ExtResource( 5 )
+percent_visible = false
 
 [node name="ClickBox" type="Area2D" parent="."]
 
