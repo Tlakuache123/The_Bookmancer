@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/ui/PlayerUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game_board.tres" type="Resource" id=2]
+[ext_resource path="res://src/turn_manager.gd" type="Script" id=3]
 [ext_resource path="res://scenes/_debug/game_board.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/_debug/test.gd" type="Script" id=5]
 
 [node name="Test" type="Node2D"]
 script = ExtResource( 5 )
+player_path = NodePath("CanvasLayer/PlayerUI")
 
 [node name="GameBoard" parent="." instance=ExtResource( 4 )]
 
 [node name="TurnManager" type="Node" parent="."]
+script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

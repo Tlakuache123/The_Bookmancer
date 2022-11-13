@@ -1,6 +1,7 @@
 extends Node2D
 class_name Actor
 
+signal setup
 signal end_turn
 signal end_take_damage
 
@@ -14,7 +15,8 @@ onready var hp = max_hp setget _set_hp
 
 
 func _setup() -> void:
-	pass
+	yield(get_tree(),"idle_frame")
+	emit_signal("setup")
 
 
 func _take_damage() -> void:

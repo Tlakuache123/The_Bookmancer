@@ -10,6 +10,7 @@ var turn : bool = false setget set_turn
 
 onready var hp_bar = $HpBar
 onready var anim = $AnimationPlayer
+onready var anim_state = $AnimState
 
 func _ready():
 	_setup()
@@ -33,16 +34,18 @@ func _set_hp(value) -> void:
 
 func set_turn(value):
 	turn = value
-	if !turn:
+	if turn:
+		_play_turn()
+	else:
 		_end_turn()
 
 
 func set_in_mouse(value):
 	in_mouse = value
 	if in_mouse:
-		anim.play("select")
+		anim_state.play("select")
 	else:
-		anim.play("RESET")
+		anim_state.play("RESET")
 
 
 func check_player() -> bool:
